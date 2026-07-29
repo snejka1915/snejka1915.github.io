@@ -1,0 +1,11 @@
+{
+  "name": "★ PRB Fw900 Auto & Manual Multi GoldHEN Loader with USB Timer ",
+  "version": "★ v2.4b16.2  ",
+  "home_assistant_domain": "esphome",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "PRB.bin", "offset": 0 }]
+    }
+  ]
+}

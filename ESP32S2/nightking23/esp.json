@@ -1,0 +1,11 @@
+{
+  "name": "NIGHT KING AUTO JB & MOUNT USB FOR ESP32-S2 v7.1",
+  "version": "GOLDHEN 2.3",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "nightking.bin", "offset": 0 }]
+    }
+  ]
+}
