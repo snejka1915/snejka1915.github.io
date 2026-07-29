@@ -1,0 +1,168 @@
+<html>
+<head>
+    <script>
+        if (window.applicationCache.status === 0) {
+            window.location.replace("cache.html");
+    }
+    </script>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS4 Exploit + GoldHen v2.3 by Lincoln</title>
+    <style>
+        body {
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			z-index: -1;
+			background-image: url(background.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			overflow: hidden;
+        }
+
+        .loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -75px 0 0 -75px;
+
+            border: 10px solid #1f1e1e;
+            border-radius: 50%;
+            border-top: 10px solid #FBBE88;
+            border-left: 10px solid #FBBE88;
+            width: 120px;
+            height: 120px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .info {
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            font-size: 45px;
+            font-family: sans-serif;
+            color: #FBBE88;
+
+            transform: translate(-50%, -50%);
+        }
+
+        .j {
+            font-size: 15px;
+            color: #FBBE88;
+        }
+        
+        #counter {
+		font-size: 24px;
+		text-align: center;
+		text-shadow: 1px 1px 1px black;
+		color: #FBBE88;
+	    }
+    </style>
+    <script src="int64.js"></script>
+    <script src="rop.js"></script>
+    <script src="kexploit.js"></script>
+    <script src="webkit.js"></script>
+</head>
+
+<body>
+    <div id="counter">Pass = <span style="color:green" id="passCounter"></span>&nbsp;&nbsp;:&nbsp;&nbsp;Fail = <span style="color:red" id="failCounter"></span></div>
+    <div id="loader" class="loader"></div>
+    <div id="awaiting" class="info" style="display:none;">
+        Awaiting Reload...
+        <br />
+    </div>
+
+    <div id="allset" class="info" style="display:none;">
+        You're all set!
+    </div>
+<script>
+function allset() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("allset").style.display = "block";
+}
+
+function awaitpl() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("awaiting").style.display = "block";
+}
+
+if ((localStorage.passcount === "0") || (localStorage.passcount === undefined)) {
+    localStorage.passcount = 0;
+    //window.passCounter.innerText = localStorage.passcount;
+    document.getElementById("passCounter").innerText = localStorage.passcount;
+} else {
+    //window.passCounter.innerText = localStorage.passcount;
+    document.getElementById("passCounter").innerText = localStorage.passcount;
+}
+
+if ((localStorage.failcount === "0") || (localStorage.failcount === undefined)) {
+    localStorage.failcount = 0;
+    //window.failCounter.innerText = localStorage.failcount;
+    document.getElementById("failCounter").innerText = localStorage.failcount;
+} else {
+    //window.failCounter.innerText = localStorage.failcount;
+    document.getElementById("failCounter").innerText = localStorage.failcount;
+}
+
+function load_poc(PLfile){
+ var req = new XMLHttpRequest();
+ req.responseType = "arraybuffer";
+ req.open('GET', PLfile);
+ req.send();
+ req.onreadystatechange = function () {
+  if (req.readyState == 4) {
+   PLD = req.response;
+   var payload_buffer = chain.syscall(477, 0, PLD.byteLength*4 , 7, 0x1002, -1, 0);
+   var pl = p.array_from_address(payload_buffer, PLD.byteLength*4);
+   var padding = new Uint8Array(4 - (req.response.byteLength % 4) % 4);
+   var tmp = new Uint8Array(req.response.byteLength + padding.byteLength);
+   tmp.set(new Uint8Array(req.response), 0);
+   tmp.set(padding, req.response.byteLength);
+   var shellcode = new Uint32Array(tmp.buffer);
+   pl.set(shellcode,0);
+   var pthread = p.malloc(0x10);
+   delay(0);
+   chain.call(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_buffer, 0);
+   delay(0);
+  }
+ };
+}
+
+
+function jbdone(){
+PLfile = "goldhen.bin";
+allset();
+setTimeout(load_poc(PLfile), 0);
+}
+
+</script>
+<script>
+    window.addEventListener('load', function() {
+        try {
+
+        setTimeout(poc, 1500);
+
+        } catch (error) {
+            alert(
+                `${error}\n`
+                + `${error.sourceURL}:${error.line}:${error.column}\n`
+                + `${error.stack}`
+            );
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<html manifest="cache.manifest">
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<title>PS4 Exploit + GoldHen v2.3 by Lincoln</title>
+<style>
+	* {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      color: black;
+    }
+
+    body {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		z-index: -1;
+		background-image: url(background.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		overflow: hidden;
+	}
+
+	.info {
+		overflow: hidden;
+		position: fixed;
+		top: 45%;
+		left: 50%;
+		font-size: 42px;
+		font-family: sans-serif;
+		color: #FBBE88;
+		text-align: center;
+		text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+		transform: translate(-50%, -52%);
+	}
+</style>
+</head>
+<body>
+<div id="msgs" class="info"></div>
+<script>
+history.replaceState(null, null, 'index.html');
+
+function DLProgress(e){
+const Percent=(Math.round(e.loaded / e.total * 100));
+msgs.innerHTML="Cache installation: " + Percent + "%"
+}
+
+function DisplayCacheProgress(){
+	setTimeout(function(){msgs.innerHTML="Cache installed ✔<br>Turn off the Internet and Reboot PS4!";}, 2000);
+}
+
+window.applicationCache.addEventListener("progress", DLProgress, false);
+
+window.applicationCache.oncached=function(e){
+DisplayCacheProgress();
+};
+
+window.applicationCache.onupdateready=function(e){
+DisplayCacheProgress();
+};
+</script>
+</body>
+</html>
