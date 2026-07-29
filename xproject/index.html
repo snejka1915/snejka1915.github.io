@@ -1,0 +1,340 @@
+<!doctype html>
+<html>
+	<meta charset="utf-8">
+<head>
+<meta charset="UTF-8" http-equiv="expires" content="31536000"> <!-- one year -->
+<title>X-PROJECT</title> 
+<link rel="stylesheet" href="css/anim.css">
+<link rel="stylesheet" href="css/icons.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/custom.css">
+<link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+<script>
+// Get IP From Exploit-Host-Server_v1.2
+var request = new XMLHttpRequest(); request.open('GET', 'http://' + location.host + ':8000', true); request.onload = function () {var data = JSON.parse(this.response); if (request.status >= 200 && request.status < 400) {localStorage.setItem("UserIP", data.ipt); CC("UserIP", localStorage.UserIP, 365);}}; request.send();
+</script>
+</head>
+<body onload="Populate();">
+<script>
+// Set some variables
+var xpver = "X-PROJECT 1.5.8"; var RC = readCookie; var CC = createCookie; var LS = localStorage; var SS = sessionStorage;
+
+// Handle Cookies
+function createCookie(name,value,days){if(days){var date=new Date();date.setTime(date.getTime()+(days*24*60*60*1000));var expires="; expires="+date.toGMTString();}else expires="";document.cookie=name+"="+value+expires;}
+function readCookie(name){var nameEQ=name+"=";var ca=document.cookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)==' ') c=c.substring(1,c.length);if(c.indexOf(nameEQ)==0) return c.substring(nameEQ.length,c.length);} return null;}
+
+// Set background wallpaper and Colour Tint
+if(LS.BGimage==null){LS.BGimage='wallpaper1.jpg';}
+if(RC('BGimage')==null){CC('BGimage',LS.BGimage,365);}
+document.body.style.color = RC('xmbcolor');
+document.body.style.backgroundImage = 'url(wallpaper/'+RC("BGimage")+')';
+document.body.style.backgroundSize = "cover";
+
+// Update chosen color to menu items
+function ColorChanger() {
+	colpick = RC('xmbcolor');
+	document.body.style.color = colpick;
+	document.getElementById("content").contentDocument.body.style.borderColor = colpick;
+	document.getElementById("content").contentDocument.body.style.color = colpick;
+	document.getElementById("Tpopup").style.borderColor = colpick;
+	keepCols = document.getElementById("xmb").getElementsByClassName("material-icons");
+	keepCols[0].style.color = "firebrick"; // quick icon
+	keepCols[payloadcount].style.color = "gold"; //debug icon
+	keepCols[payloadcount-13].style.color = "lime"; //cache icon
+}
+
+</script>
+<script src="js/settings.js"></script> <!--  Load Settings  -->
+<div id="Tpopup" onclick="Tpopup.classList.remove('animation');">
+<div id="Ticon" ><img width="38" height="38" src="data:image/png;base64,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"></div>
+<div id="Ttitle" ></div>
+<div id="Tsubtitle"></div>
+<div id="Tbutton" onclick=""><img id="avaimage" src='avatar.png'  onerror='this.onerror = null; this.src="icons/user.png"' width="60px" height="60px" /></div>
+</div>
+<div class="topmask"></div>
+<div id="contents" class="contents"><iframe id="content" name="content" class="content" src="payloads/blank.html" onLoad="ColorChanger();"></iframe></div>
+<div class="rgbcontainer" id="rgbcontainer"><canvas id="rgbCanvas" class="rgbCanvas" width="865" height="90"></canvas></div>
+<h2 class="top" id="top" onclick="DebugMode()">PS4 PAYLOAD HOST</h2>
+<h2 class="clock" id="clock" onclick=ToggleKernel()>X-PROJECT ЗАГРУЖАЕТСЯ..</h2>
+<h2 class="ktime" id="ktime" onclick=ToggleKernel()></h2>
+<div id="ToggleKtime" onclick=ToggleKernel() style="position:fixed;right:20px;top:20px;max-width:100%;max-height:100%;margin:auto;width:310px;height:70px;cursor:pointer;border:0px;z-index:500;"></div>
+<div id="NavFix" tabindex="1" style="position:fixed;left:0;right:0;top:0;bottom:30px;max-width:100%;max-height:100%;margin:auto;width:100px;height:100px;"></div>
+<div id=MyContainer>
+<div id="xmb-contain">
+  <div id="xmb">
+    <ul>
+      <li class="column" v-for="column,index in columns" v-bind:class="{active:column.active}" v-bind:style="{left:column.position.x+'px'}">
+        <div class="cell" v-bind:class="{active:column.active}" v-on:click="highlightCell(column.index,0)">
+		<i class="material-icons xmb-icon">{{column.icon}}<div :id="column.custom"></div></i>
+        <label>{{column.title}}</label>
+        </div>
+        <ul>
+          <li class="cell submenu" v-for="item,itemIndex in column.items" v-bind:class="{active:item.active}" v-bind:style="{top:item.position.y+'px'}" v-on:click="highlightCell(column.index,itemIndex)"> 
+          <a v-bind:href="'javascript:content.location.replace(\'' + item.expage + '\')'">
+            <div class="selected">
+              <div class="material-icons">{{item.icon}}<div :id="item.custom"></div>{{item.icontxt}}</div>
+              <div class="titles">{{item.title}}{{column.txt1}}<div :id="item.button1"></div>{{column.txt2}}<div :id="item.button2"></div>{{column.txt3}}</div>
+			  <div class="desc">{{item.desc}}{{item.txt4}}<div :id="item.button3"></div>{{item.txt5}}<div :id="item.button4"></div>{{item.txt6}}{{item.txt4}}<div :id="item.button5"></div>{{item.txt5}}<div :id="item.button6"></div>{{item.txt7}}{{item.txt4}}<div :id="item.button7"></div>{{item.txt5}}<div :id="item.button8"></div>{{item.txt8}}{{item.txt9}}<div :id="item.button9"></div>{{item.txt10}}<div :id="item.button10"></div>{{item.txt11}}</div>
+			  <div class="subs">Version: {{item.version}}</div>
+            </div>
+          </a>
+		</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div></div>
+<script src="js/vue.js"></script>
+<script src="js/lodash.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/index.js"></script>
+<video id="trophy" width="0" height="0"><source src="trophy.mp4" type="video/mp4" preload></video>
+<script>
+// After using Credits, Details or Stats etc > Go back to the relevant menu item.
+myNum = xmbVue.nColumns;//This variable must be included here for xmbVue.handleKey to work!!!
+if (SS.Settings != null) {xmbVue.handleKey('x',14); xmbVue.handleKey('y',0);}
+if (SS.Credits != null)  {xmbVue.handleKey('x',14); xmbVue.handleKey('y',1);}
+if (SS.Details != null)  {xmbVue.handleKey('x',14); xmbVue.handleKey('y',2);}	
+if (SS.Stats != null)    {xmbVue.handleKey('x',14); xmbVue.handleKey('y',3);}
+if (SS.Changelog != null){xmbVue.handleKey('x',14); xmbVue.handleKey('y',4);}
+
+// Setup Debug item. -2 for debug and test payload icons
+var payloadcount = ((document.getElementById('xmb-contain').getElementsByTagName('li').length)- 2);
+//alert("Number of icons: "+document.getElementById('xmb-contain').getElementsByTagName('li').length+"\nNumber of cols: "+xmbVue.nColumns);	
+
+// Is It Cached? Check
+if (window.applicationCache.status == '0') {cachedxp = "false";} else {cachedxp = "true";}
+
+// Set and show System and Kernel Time & Date. 
+	// To set the correct Kernel Time add the following line to a payload:
+	// localStorage.KernEpoch = new Date().getTime() +- new Date(timetoset*1000 + 1325376000000); parent.CC("KernEpoch",localStorage.KernEpoch,365); parent.ShowTimeAndDate();
+	// Replace 'timetoset' with the epoch value you want to set.
+function ShowTimeAndDate() {
+	var Kdate = new Date();
+	Kdate.setTime(Kdate.getTime() +- RC('KernEpoch'));
+	document.getElementById('clock').innerHTML = Date().toString().slice(0,21);
+	if (RC('KernClock') == "ON")document.getElementById('ktime').innerHTML = 'Kernel Time: ' + Kdate.toString().slice(0,21);
+}
+ShowTimeAndDate(); setInterval(ShowTimeAndDate,60*1000);
+
+function ToggleKernel() {
+var x = document.getElementById("ktime");
+if (RC('KernClock') == "OFF") {document.getElementById("ktime").style.display = "block"; CC("KernClock","ON",365);LS.KernClock='ON';ShowTimeAndDate();} 
+else {document.getElementById("ktime").style.display = "none"; CC("KernClock","OFF",365);LS.KernClock='OFF';ShowTimeAndDate();}
+} 
+
+// Auto-Update Cache Screen
+function DLProgress(e){
+	document.getElementById("ScrOverlay").style.display = "block";
+	Percent = (Math.round(e.loaded / e.total * 100));
+	document.getElementById('cacheUPDtxt').innerHTML = "ОБНАРУЖЕН НОВЫЙ АВТОНОМНЫЙ КЭШ<br>ОБНОВЛЕНИЕ" + Percent + "%";
+} 
+	window.applicationCache.addEventListener("progress", DLProgress, false);
+	window.applicationCache.onupdateready = function (e){window.location.reload();};
+	window.applicationCache.onerror = function (e) {document.getElementById('cacheUPDtxt').innerHTML = "ОШИБКА ОБНОВЛЕНИЯ КЭША!!";};
+
+// Pick Color From Avatar Image
+function AvatarColorPick(){
+    var canvasEl = document.getElementById('colorCanvas');
+    var canvasContext = canvasEl.getContext('2d');
+    var image = new Image(210, 210);
+    image.onload = () => canvasContext.drawImage(image, 0, 0, image.width, image.height); 
+	str = document.getElementById("avaimage").src;
+	if (str.includes("/icons/user.png")) {image.src = "./icons/user.png";} else {image.src = "./avatar.png";}
+	canvasEl.onclick = function(mouseEvent){
+	var imgData = canvasContext.getImageData(mouseEvent.offsetX, mouseEvent.offsetY, 1, 1);
+	var rgb = imgData.data;
+	localStorage.xmbcolor = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
+	CC('xmbcolor',localStorage.xmbcolor,365);
+	var z = parent.document.querySelectorAll(".active"); 
+	var i; for (i = 0; i < z.length; i++) {z[i].style.color = localStorage.xmbcolor;}
+	ColorChanger();
+    };
+}	
+	
+// Start Populate Function To Fill in On-Screen details ///////////////////////////////////////////////////////////////////////////////////////
+function Populate() {
+// Get or Set True Firmware Version	
+var UA = navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple"));
+	if (LS.truefirm == null) {
+	if (UA == "5.05" || UA == "5.07") {LS.setItem("truefirm", Number(UA)); truefw = LS.truefirm;}
+	else {LS.setItem("truefirm", "spoofed");truefw = LS.truefirm;}
+	} else {truefw = LS.truefirm;}
+
+// Set items in INFO Pannel
+var txt = "";
+	txt += "HOST VER : " + "<span style='color:white;' onclick='hide()'>" + xpver + "</span>" + "<br><br>";
+	txt += "<div id=R1BUTTON></div>+ <div id=DLBUTTON></div>: " + RC('Combo1A') + "<br>";
+	txt += "<div id=R1BUTTON></div>+ <div id=DRBUTTON></div>: " + RC('Combo2A') + "<br>";
+	txt += "<div id=R1BUTTON></div>+ <div id=DDBUTTON></div>: " + RC('Combo3A') + "<br>";
+	txt += "<div id=R1BUTTON></div>+ <div id=L2BUTTON></div>: " + RC('Combo4A') + "<br><br>";
+	txt += "USERNAME : "+"<span onmouseover=document.getElementById('user').disabled=false; onmouseout=document.getElementById('user').disabled=true;><input disabled type='input' id='user' value='user' onmousemove='savename()'></span>"+"<br>";
+    txt += "PS4 FTP IP &nbsp;: "+"<span onmouseover=document.getElementById('myip').disabled=false; onmouseout=document.getElementById('myip').disabled=true;><input disabled type='myip' id='myip' value='0.0.0.0:1337' onmousemove='saveip()'></span>"+"<br><br>";
+	if (UA > "5.99" && !isNaN(UA)) {txt += "PSVR Spoof Enabled : " + "<span style='color:lime'> true </span>" + "<br>";} else if(isNaN(UA)){ txt += "PSVR Spoof Enabled : " + "<span style='color:red'>n/a</span>" +"<br>";}else {txt += "PSVR Spoof Enabled : " + "<span style='color:red'> false </span>" + "<br>";}txt += "Mira Kernel Logging : " + "<span style='color:red'> n/a </span>" + "<br>";
+	if (truefw == "spoofed" && !isNaN(UA)) { txt += "Официальная прошивка : " + "<span style='color:red'>Перезагрузите консоль</span>" +"<br>";} else if(isNaN(UA)){ txt += "Официальная прошивка : " + "<span style='color:red'>n/a</span>" +"<br>";}else { txt += "Официальная прошивка : " + "<span style='color:lime'>v" + truefw + "</span>" + "<br>";}
+	if (navigator.onLine == false) { txt += "Включена локальная сеть/ Wi-Fi : " + "<span style='color:red'> false </span>" + "<br>";} else { txt += "Включена локальная сеть/ Wi-Fi : " + "<span style='color:lime'> true </span>" + "<br>";}
+	if (navigator.cookieEnabled === false) { txt += "Отслеживание файлов cookie : " + "<span style='color:red'> false </span>" + "<br>";} else { txt += "Отслеживание файлов cookie : " + "<span style='color:lime'> true </span>" + "<br>";}
+	if (cachedxp === "false") { txt += "Кэширование хоста : " + "<span style='color:red'>" + cachedxp + "</span>" + "<br><br>";} else { txt += "Кэширование хоста : " + "<span style='color:lime'>" + cachedxp + "</span>" + "<br><br>";}
+	document.title = xpver;
+	document.getElementById("infoz").innerHTML = txt;
+	document.getElementById("user").value = RC("UserName");
+	document.getElementById("user").style.color = RC("xmbcolor");
+	if (RC("UserIP")=='NotSet'){document.getElementById("myip").value="NotSet";}else{document.getElementById("myip").value=RC("UserIP")+":1337";}
+	document.getElementById("myip").style.color = RC("xmbcolor");
+
+// Update localStorage to keep certain setting values in memory after refresh or memory error
+function updateLS(){
+	LS.BGimage=RC('BGimage');
+	LS.xmbcolor=RC('xmbcolor');
+	LS.KernEpoch=RC('KernEpoch');
+	LS.KernClock=RC('KernClock');
+	LS.UserName=RC('UserName');
+	LS.UserIP=RC('UserIP');
+	LS.WelcomePop=RC('WelcomePop');	
+	LS.Combo1NUM=RC('Combo1NUM'); LS.Combo1A=RC('Combo1A'); LS.Combo1B=RC('Combo1B');
+	LS.Combo2NUM=RC('Combo2NUM'); LS.Combo2A=RC('Combo2A'); LS.Combo2B=RC('Combo2B');
+	LS.Combo3NUM=RC('Combo3NUM'); LS.Combo3A=RC('Combo3A'); LS.Combo3B=RC('Combo3B');
+	LS.Combo4NUM=RC('Combo4NUM'); LS.Combo4A=RC('Combo4A'); LS.Combo4B=RC('Combo4B');
+	LS.Combo4NUM=RC('Combo5NUM'); LS.Combo5A=RC('Combo5A'); LS.Combo5B=RC('Combo5B');
+	LS.Quick1NUM=RC('Quick1NUM'); LS.Quick1A=RC('Quick1A'); LS.Quick1B=RC('Quick1B'); LS.Quick1C=RC('Quick1C'); LS.Quick1D=RC('Quick1D'); LS.Quick1E=RC('Quick1E');
+	LS.Quick2NUM=RC('Quick2NUM'); LS.Quick2A=RC('Quick2A'); LS.Quick2B=RC('Quick2B'); LS.Quick2C=RC('Quick2C'); LS.Quick2D=RC('Quick2D'); LS.Quick2E=RC('Quick2E');
+	LS.Quick3NUM=RC('Quick3NUM'); LS.Quick3A=RC('Quick3A'); LS.Quick3B=RC('Quick3B'); LS.Quick3C=RC('Quick3C'); LS.Quick3D=RC('Quick3D'); LS.Quick3E=RC('Quick3E');
+	LS.Quick4NUM=RC('Quick4NUM'); LS.Quick4A=RC('Quick4A'); LS.Quick4B=RC('Quick4B'); LS.Quick4C=RC('Quick4C'); LS.Quick4D=RC('Quick4D'); LS.Quick4E=RC('Quick4E');
+	LS.Quick5NUM=RC('Quick5NUM'); LS.Quick5A=RC('Quick5A'); LS.Quick5B=RC('Quick5B'); LS.Quick5C=RC('Quick5C'); LS.Quick5D=RC('Quick5D'); LS.Quick5E=RC('Quick5E');
+	LS.Quick6NUM=RC('Quick6NUM'); LS.Quick6A=RC('Quick6A'); LS.Quick6B=RC('Quick6B'); LS.Quick6C=RC('Quick6C'); LS.Quick6D=RC('Quick6D'); LS.Quick6E=RC('Quick6E');
+}
+updateLS();
+
+// DETECT TRUEFW & CURRENT "FW" VIA USERAGENT & COMPARE
+var fw = document.getElementById('ident');
+	reportedfw = UA;
+	truefw = localStorage.truefirm;
+	if (truefw == reportedfw){
+	fw.style.color = "white";
+	fw.innerHTML = ("FW v"+truefw+" DETECTED");
+	} else {
+	truefw = localStorage.truefirm;
+	fw.style.color = "white";
+	fw.innerHTML = ("<span style='color:lime'>&nbsp;ОФИЦИАЛЬНАЯ ПРОШИВКА v"+truefw+"</span><br><span style='color:red'>СПУФ ПРОШИВКИ v"+reportedfw+"</span>");
+	}
+	if(isNaN(reportedfw)){fw.innerHTML = ("<span style='color:red'>PS4 НЕ ОБНАРУЖЕНА</span>");}
+	if (truefw == "spoofed" && !isNaN(UA)){fw.innerHTML = ("<span style='color:red'>ПЕРЕЗАГРУЗИТЕ КОНСОЛЬ</span>");
+	alert("Кэш удален после спуфа FW\n\nОпределено неверное значение\n\nПожалуйста, перезагрузите консоль");
+	localStorage.removeItem("truefirm");
+	}
+
+// Show/Hide Info Pannel and Avatar	
+if (localStorage.getItem("ipanel") === null) {
+	document.getElementById("infoz").style.display = "block";
+	document.getElementById("avacontainer").style.display = "none";
+	} else if (localStorage.getItem("ipanel") === "on" ) {
+	document.getElementById("infoz").style.display = "block";
+	document.getElementById("avacontainer").style.display = "none";
+	} else {hideMe();}
+	if (localStorage.getItem("Debug") === "on") {
+	document.getElementsByTagName("UL")[0].getElementsByTagName("LI")[payloadcount].style.display = "block";
+	ColorChanger();
+	myNum = xmbVue.nColumns;
+	} else {
+	document.getElementsByTagName("UL")[0].getElementsByTagName("LI")[payloadcount].style.display = "none";
+	myNum = xmbVue.nColumns-1;
+	}
+	
+// Auto Cache X-Project if not already cachedz
+if (cachedxp != "true" && SS.Settings == null && SS.Credits == null && SS.Details == null && SS.Stats == null && SS.Changelog == null) {	
+	pop();
+	document.getElementById('Ttitle').innerHTML='УСТАНОВКА X-PROJECT:';
+	document.getElementById('Tsubtitle').innerHTML='ПОЖАЛУЙСТА, ПОДОЖДИТЕ!';
+	xmbVue.handleKey('x', 12); //move to cache column (12)	
+	content.location.replace("payloads/xmbcache.html");
+	}
+
+
+}// Populate Function ends here!. ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Show/Hide Info panel
+function hideMe() {
+	var y = document.getElementById("infoz");
+	if (y.style.display === "none") {
+    y.style.display = "block";
+	localStorage.setItem("ipanel", "on");
+	document.getElementById("hide").innerHTML = "&nbsp;&nbsp;&nbsp;СПРЯТАТЬ ИНФОРМАЦИЮ";
+	document.getElementById("show").innerHTML = "";
+	document.getElementById("hide").style.fontSize = "15px";
+	document.getElementById("avacontainer").style.display = "none";
+	} else {
+	AvatarColorPick();
+	localStorage.setItem("ipanel", "off");
+  	document.getElementById("hide").innerHTML = xpver;
+	document.getElementById("hide").style.fontSize = "27px";
+	document.getElementById("show").innerHTML = "&nbsp;&nbsp;&nbsp;ПОКАЗАТЬ ИНФОРМАЦИЮ";
+	document.getElementById("avacontainer").style.display = "block";
+    y.style.display = "none";
+	}
+}
+
+// Show/Hide Debug Mode
+function DebugMode() {
+    var x = document.getElementsByTagName("UL")[0];
+    if (x.getElementsByTagName("LI")[payloadcount].style.display === "none") {
+	myNum = xmbVue.nColumns;
+    x.getElementsByTagName("LI")[payloadcount].style.display = "block";
+	ColorChanger();
+	localStorage.setItem("Debug", "on");
+	pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='DEBUG TOGGLED ON';
+    } else {
+	myNum = xmbVue.nColumns-1;
+    x.getElementsByTagName("LI")[payloadcount].style.display = "none";
+	localStorage.setItem("Debug", "off");
+	pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='DEBUG TOGGLED OFF';
+    }
+}
+
+// Show X-Project Notification PopUp
+function pop() {
+    Tpopup.style.backgroundImage = 'url(wallpaper/'+RC("BGimage")+')';
+	document.getElementById("trophy").play();
+	Tpopup.classList.remove('animation');
+	void Tpopup.offsetWidth;Tpopup.classList.add('animation');
+}
+
+// Save the inputted Username
+function savename() {
+	LS.UserName=document.getElementById("user").value;
+	CC("UserName",LS.UserName,365);
+	document.getElementById("user").blur(); 
+}
+
+// Save the inputted IP address
+function saveip() {
+	LS.UserIP=document.getElementById("myip").value;
+	CC("UserIP",LS.UserIP,365);
+	document.getElementById("myip").blur(); 
+}
+
+// Simulate Key Press to fix Key-Combo
+function SimulateKeyPress() {
+    function PressKey(keyCode) {
+    var event = document.createEvent("HTMLEvents");
+    event.initEvent("keyup", true, false);
+    event.keyCode = keyCode;
+    document.dispatchEvent(event);
+    }
+    document.addEventListener("keyup", false);
+    PressKey(113); //Press Square Button
+}
+setTimeout(SimulateKeyPress, 500);
+</script>
+<div id="ScrOverlay" class=cacheUPDbg><pre id="cacheUPDtxt" class=cacheUPD></pre></div>
+<div class="avacontainer" id="avacontainer"><canvas id="colorCanvas" class="colorCanvas" width="210" height="210"></canvas></div>
+<h3 class="infoz" id="infoz">X-PROJECT ЗАГРУЖАЕТСЯ..</h3>
+<h5 class="hide" id="hide" onclick='hideMe()'>&nbsp;&nbsp;&nbsp;СКРЫТЬ ИНФОРМАЦИЮ</h5>
+<h5 class="hide" id="show" onclick='hideMe()'></h5>
+<h4 class="ident" id="ident">X-PROJECT ЗАГРУЖАЕТСЯ..</h4>
+</body>
+</html>
