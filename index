@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en, ru">
+  <meta charset="utf-8">
+    <style>
+        body{color: rgb(255, 255, 255); background-image:url(images/background12.jpg); background-attachment:fixed; background-size:100%; background-repeat:no-repeat;}
+        input{width:25px;height:25px;background-color: transparent;}
+            button {
+                        background-color: white;
+                        border: 2px solid rgb(73, 54, 54);
+                       /* border-radius: 10px;*/
+                        font-family: 'Acme', sans-serif;
+                        text-shadow: 3px 3px 3px rgb(182, 179, 179);
+                        text-align: center;
+                                    }
+            button:hover {
+                        box-shadow: 0 2px 20px 0 rgba(255, 255, 255, 0.616);
+                        color: rgb(248, 248, 248);
+                        /*border-radius: 10px;*/
+            }a
+           </style>
+<head>
+<title>PS4 JailBreak</title>
+<link rel="shortcut icon" href="images/favicon.ico"></link>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+<link href="/fonts/Comic_Sans_MS.ttf" rel="stylesheet">
+<link rel="stylesheet prefetch" href="Style.css">
+<script>
+    document.cookie = 'kex=1';
+</script>
+<script>
+    function showdate() {
+  var dt = new Date();
+    Hour= dt.getHours();
+  Minute= dt.getMinutes();
+     Day=dt.getDate();
+   Month=dt.getMonth()+1;
+   Year=dt.getFullYear();
+if (Minute < 10) { Minute = "0" + Minute; };
+if (Hour < 10) { Hour = "0" + Hour; };
+document.getElementById("date").innerHTML = (Day+"."+Month+"."+Year);
+document.getElementById("clock").innerHTML = (Hour+":"+Minute);
+  }
+  
+  setInterval(showdate,0);
+</script>
+</head>
+
+<body class="bg-darker">
+  <header>
+    <div class="header-bg">
+         <div class="section_header">
+          <img class="services_item" src="images/logoPS4.png"> 
+          <span id="date" style="float:left; font-weight:bold; margin-top: -48px; font-size:38px; color: #D0690F;"></span>
+          <span id="clock" style="float:right; font-size:38px; margin-top: -48px; font-weight:bold; color: #D0690F;"></span>
+       </div>
+        <h1 id=msgs2 style='font-size:26px; font-family: Comic Sans MS, Comic Sans; font-weight: 700; text-align:center; margin-top: 6px; margin-bottom: 6px; color: yellow;'>ОПИСАНИЕ</h1>
+      </div>
+   </header>
+   <main class="darker"> 
+    <div style="text-align:center" id="MyItems">
+       <hr width="65%" size="1" color="#ff5757">
+      <h1 style="font-size: 25px; font-family: Comic Sans MS, Comic Sans;">Рабочий DNS <font style="color: #eef302; font-weight: bold;">62.210.38.117</font></h1>
+      <hr width="65%" size="1" color="#ff5757">
+      <h1 style="font-size: 25px; font-family: Comic Sans MS, Comic Sans;">Курс молодого бойца или FAQ для новичков</h1>
+      <a href="https://inty818.ucoz.net/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Купил приставку с прошивкой 7.xx, 8.03, 8.52, 9.00 и что делать дальше?'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:20px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>от Snejka1915</a>
+      <a href="https://mega.nz/file/uVwDHQoA#QrauWb27ydq4CzBSujhYH2ZZy4nMrDB8s3SZO9Lm1tw" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='В архиве софт и инструкция к нему'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:20px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>от NormaN</a>
+      <hr width="65%" size="1" color="#ff5757">
+      <h1 style="font-size: 25px; font-family: Comic Sans MS, Comic Sans;">Хосты для активации консоли</h1>
+      <a href="https://snejka1915.ucoz.net/505.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Онлайн хосты для версии прошивки 5.05'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>5.05</a>
+      <a href="https://snejka1915.ucoz.net/672.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Онлайн хосты для версии прошивки 6.72'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>6.72</a>
+      <a href="https://snejka1915.ucoz.net/7xx.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Онлайн хосты для версии прошивок 7.02 и 7.55'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>7.xx</a>
+      <a href="https://snejka1915.ucoz.net/900.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Онлайн хосты для версии прошивки 9.0 - 11.02 с USB флешкой и без'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>9.0-11.02</a>
+      <a href="https://snejka1915.ucoz.net/ps5.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Онлайн хосты для активации PS5 на ПО 4.03, 4.50'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>PS5</a>     
+      <br>
+      <hr width="65%" size="1" color="#ff5757">
+      <h1 style="font-size: 25px; font-family: Comic Sans MS, Comic Sans;">Онлайн прошивальщики</h1>
+      <a href="/ESP32S2/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Онлайн прошивальщик плат ESP32 S2 для ПО 9.0'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>ESP32 S2</a>
+      <a href="/ESP8266/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Онлайн прошивальщик плат ESP8266 для ПО 9.0'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>ESP8266</a>
+      <a href="/ESP8266/8266.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Онлайн прошивальщик плат ESP8266 для ПО 5.05/6.72'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:18px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>ESP8266 5.05/6.72</a>
+      <a href="/PS5/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Онлайн прошивальщик плат ESP8266 и ESP32 S2 для PS5 ПО 4.03/4.50'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:18px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>PS5</a>
+      <hr width="65%" size="1" color="#ff5757">
+      
+      <h1 style="font-size: 25px; font-family: Comic Sans MS, Comic Sans;">Офлайн хосты для Windows</h1>
+           <a href="https://mega.nz/file/nNQ3RQiJ#kwi8tTuyQMkz_aTk5_6cV9OUuRGCRxn1vAmQt_6dVK8" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Офлайн хосты для ПО 5.05, 6.72, 7.02, 7.5X, 9.0 с GoldHen 2.3-2.4b18'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>для 5.05-9.0</a>
+       <a href="https://mega.nz/file/fBxxQKpb#AGMvhadnXiaNugIECoeAjFc3hzt8AKM_u8JM3srMJwI" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Офлайн хосты для ПО 7.XX - 9.60 с GoldHen 2.4b18.6. Активация без USB флешки'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>для 7.XX-9.60</a>
+       <a href="https://mega.nz/file/GV5zVBJD#RBQl5EHcaZlP7d6vdcggZ44NM1bq84KFajx1ZoazuGY" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Офлайн хосты для ПО 5.05, 6.72, 7.xx, 9.xx с GoldHen 2.3-2.4b18.9'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>для 5.05-9.xx</a>
+      <hr width="65%" size="1" color="#ff5757">
+      <h1 style="font-size: 25px; font-family: Comic Sans MS, Comic Sans;">Офлайн хосты для Android</h1>
+            <a href="https://mega.nz/file/LAR1XK4K#BkrMuBO177PwaNUeQEf83LlwBjT059APwn3EEFK8df4" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Офлайн хосты для ПО 5.05, 6.72, 7.02, 7.5X, 9.0 с GoldHen 2.3-2.4b18'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>для 5.05-9.0</a>
+      <a href="https://mega.nz/file/WYACHBAQ#utm3cNZ72Y5CAQjth_xfUT4K4dRR3HvDor8JAT3tu2A" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Офлайн хосты для ПО 7.XX - 9.60 с GoldHen 2.4b18.6. Активация без USB флешки'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>для 7.XX-9.60</a>
+      <a href="https://mega.nz/file/TcABjJ5Z#P3rOInr5crt2x1MJKwqzgbrDjZM2ig4BLyNop5acEhM" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Офлайн хосты для ПО 5.05, 6.72, 7.xx, 9.xx с GoldHen 2.3-2.4b18.9'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:19px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>для 5.05-9.xx</a>
+      <hr width="65%" size="1" color="#ff5757">
+      <h1 style="font-size: 25px; font-family: Comic Sans MS, Comic Sans;">Софт для PS4</h1>
+      <a href="https://sleirsgoevy.github.io/ps4-web-activator/" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4 Offline Account Activator'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">PS4 Web Activator</a>
+        <a href="/pico_img.zip" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Образ флешки exFat_Pico.img для активации GoldHEN'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">FlashDrive PICO</a>
+        <a href="/Magic_USB.rar" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Новый образ Magic USB Flash Drive. Инструкция в архиве.'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">Magic USB</a>
+       <a href="https://mega.nz/file/bVZFkYSR#1JWdqrnAJ5p3AXX-aB03KTzvi_5ZLcz53GMsyoycQHE" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Файловый менеджер для PS4'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">PS4Xplorer 2.0</a>
+       <a href="https://mega.nz/file/HUpXELTQ#24Ten1BVjTf_UgaAbQU3KkPCkBQ3KQKrDyVMStSVoF8" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4-Xplorer v1.34'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">PS4-Xplorer</a>
+        <a href="https://mega.nz/file/yMoUkQqJ#473Yla7OqHCwjqCHAZe7dGqjsSt_IdAzzAomJ4SkX-k" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Для установки игр по сети для консоли'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 20px;">Remote PKG installer</a>
+         <br>
+       <a href="https://github.com/bucanero/apollo-ps4/releases/download/v1.6.0/IV0000-APOL00004_00-APOLLO0000000PS4.pkg" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Apollo Save Tool v1.6.0. PS4 офлайн активатор аккаунта.'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">Apollo Save Tool</a>
+        <a href="https://mega.nz/folder/aUwkma5Y#__-GrZjHvMnRzqmKEZgITQ" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Темы для PS4 на Mega.nz'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'" style='font-size:20px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>Темы PS4</a>
+        <a href="https://rutracker.org/forum/viewtopic.php?t=5931792" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Темы для PS4 на Рутрекере'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'" style='font-size:20px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>Темы PS4 RT</a>
+        <a href="https://mega.nz/file/idQlnLpB#amPGZoltIcuvCqjY9yW4VAHol5g923HSZK3xdmQhmhY" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='RetroArch для PS4 4й ревизии'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'" style='font-size:20px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>RetroArch R4</a>
+        <a href="https://mega.nz/file/GIhHiIIB#ZBjWCovHhiSfHx9Qq1B-aNVk0T8de7LD23VgLUqbhkQ" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Ядра для RetroArch PS4'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'" style='font-size:20px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>Ядра RetroArch</a>
+         <a href="https://www.youtube.com/watch?v=GYQiyNgY_Bw&ab_channel=BrutalSam" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Видео инструкция по RetroArch PS4'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'" style='font-size:20px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>Manual RetroArch</a>
+<br>
+       <a href="https://pkg-zone.com/" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Магазин приложений для PS4'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">PKG Zone</a>
+<a href="https://gamebatoapp.ir/home/Gamebato.pkg" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Онлайн магазин игр для прошитой PS4'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'" style='font-size:20px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>GameBaTo</a>
+<a href="https://github.com/bucanero/PS4CheatsManager/releases/download/v1.2.0/IV0000-CHTM00777_00-PS4CHEATSMANAGER.pkg" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='GoldHEN Cheats Manager v1.2.0 MOD'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">Cheats Manager 1.2</a>
+       <a href="https://github.com/GoldHEN/GoldHEN_Cheat_Manager/releases/download/v1.1.4/IV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='GoldHEN Cheats Manager v1.1.4'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">Cheats Manager</a>
+        <a href="https://mega.nz/file/fExjiJ7D#ZJbsKDr6KxuyteZPS9k-R5EFR0g2bRx3f0aiCY2Xf0Q" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4 Toolset v.2.20'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">PS4 Toolset</a>
+      <a href="https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER/releases/download/1.43/IV0000-SPPI01313_00-STORMPKGINSTALL0.pkg" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='STORM PS4 PKG INSTALLER 2026'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">STORM PKGI</a>
+      <br>
+      <a href="https://mega.nz/file/HAZx0JzS#KzEm_gsJD94vOM3yopy8mF-Lka7UBGwgBvyUKJYE3D8" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Apollo Save Tool v1.4.2'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">Apollo Save Tool</a>
+      <a href="https://mega.nz/file/iIwGgTRD#L3W2mNer8K4pImIZquh_gvoB65ox2FM9PBMcjIrMqMU" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Apollo Save Tool v2.2.0'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">Apollo Save Tool</a>
+      <a href="https://superumesh.github.io/" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Сайт с темами для PS4'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'" style='font-size:20px; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>Сайт с темами</a>
+      <a href="/GoldPlugins.zip" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Плагины для исправления вылетов при активации без флешки. Инструкция в архиве.'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">GoldPlugins</a>
+      <hr width="65%" size="1" color="#ff5757">
+      <h1 style="font-size: 25px; font-family: Comic Sans MS, Comic Sans;">Софт для PC</h1>
+<a href="https://mega.nz/file/rFwxHK6Q#EvEEXFR8ze558Pe22Em4avATH4E2hShb0JD61G2-cAA" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Для установки игр по сети для ПК'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 20px;">Remote PKG Sender</a>
+<a href="https://www.filezilla.ru/get/" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='FTP клиент для передачи файлов с ПК на PS4'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'">FileZilla Client</a>
+<a href="https://mega.nz/file/qNYj1bBJ#soYRQCkV7xCZjUg64iKaXY62kFqRy-L5p4zGMQWkCfs" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Эмулятор PS1 на PS4'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 20px;">PSX FPKG 0.3</a>
+<a href="https://mega.nz/file/3J5S0B7L#XmRXFQSu1U4aJQGLzLs9wsObKSkNADpZMmokc_WSTz4" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Эмулятор PS2 на PS4 стандартный'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 20px;">PS4 PS2 Classics GUI</a>
+<a href="https://mega.nz/file/aUQT0D6D#iHD5qrEIfl8fHgxI7pHdHlAKbEFEqXrIqcxyx-llnpg" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Эмулятор PS2 на PS4 с расширенными возможностями'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 20px;">PS2 FPKG 0.6</a>
+<a href="https://mega.nz/file/2c5lCBpK#7qgSt4d-Rcx6Eo-22pPdsAne0SXfv924qIGKIJDbI9Y" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4 FPKG Tools 3.87 - распаковать/запаковать pkg'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 20px;">PS4 FPKG Tools</a>
+<br>  
+<a href="https://mega.nz/file/Oc4VAR5I#pU-q3npKS7jcmeHIiUc12FRpdUB_OyAlCXJYxO0YOGo" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4 FPKG Tools Manual в картинках'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 20px;">FPKG Tools Manual</a>
+<a href="https://github.com/ReiKatari/STORM_PS4_PKG_SENDER/releases/download/1.2.81/STORM.PS4.PKG.SENDER.exe" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='STORM PS4 PKG SENDER 2026'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 20px;">STORM PKG SENDER</a>
+</main> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/scripts.js"></script>
+</body>
+</html>
+
