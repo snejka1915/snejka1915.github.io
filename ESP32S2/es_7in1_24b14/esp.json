@@ -1,0 +1,11 @@
+{
+  "name": "Echo Stretch 7in1 Ps4 Jailbreak Hosts",
+  "version": "GOLDHEN 2.4B14",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "7.HOSTS.IN.1.GH24B14.bin", "offset": 0 }]
+    }
+  ]
+}

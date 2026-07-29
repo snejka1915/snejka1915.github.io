@@ -1,0 +1,11 @@
+{
+  "name": "★ Echo Stretch PS4 Hosts 7in1 ",
+  "version": "★ v2.4b16.2  ",
+  "home_assistant_domain": "esphome",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "7.HOSTS.IN.1.GH24B16.2.bin", "offset": 0 }]
+    }
+  ]
+}
