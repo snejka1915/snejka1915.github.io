@@ -1,0 +1,11 @@
+{
+  "name": "NightKing Auto JailBreak ESP8266",
+  "version": "GOLDHEN V2.3",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [{ "path": "Esp8266_AutoUSB.bin", "offset": 0 }]
+    }
+  ]
+}
