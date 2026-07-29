@@ -1,0 +1,11 @@
+{
+  "name": "KAMELEON MANUAL LITE",
+  "version": "GOLDHEN V2.2.5B8",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [{ "path": "kme900mlite.bin", "offset": 0 }]
+    }
+  ]
+}
