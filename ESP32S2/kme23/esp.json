@@ -1,0 +1,11 @@
+{
+  "name": "Kameleon Host Auto Lite",
+  "version": "GOLDHEN 2.3",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "Kme900Auto_ESP32S2_Ghen23.bin", "offset": 0 }]
+    }
+  ]
+}

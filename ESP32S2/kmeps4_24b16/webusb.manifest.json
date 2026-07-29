@@ -1,0 +1,11 @@
+{
+  "name": "★ Kameleon ",
+  "version": "★ v3.6  ",
+  "home_assistant_domain": "esphome",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "Kme900Auto_ESP32S2_Ghen24b16.2.bin", "offset": 0 }]
+    }
+  ]
+}
