@@ -1,0 +1,32 @@
+Uri: https://gamerhack900v4.netlify.app/
+File Name: C:\Downloaded Web Sites\gamerhack900v4.netlify.app\index.htm
+Content Type: text/html
+
+Uri: https://gamerhack900v4.netlify.app/alert.mjs
+File Name: C:\Downloaded Web Sites\gamerhack900v4.netlify.app\alert.mjs
+Content Type: application/javascript
+
+Uri: https://gamerhack900v4.netlify.app/img.jpg
+File Name: C:\Downloaded Web Sites\gamerhack900v4.netlify.app\img.jpg
+Content Type: image/jpeg
+
+Uri: https://gamerhack900v4.netlify.app/int64.js
+File Name: C:\Downloaded Web Sites\gamerhack900v4.netlify.app\int64.js
+Content Type: application/javascript
+
+Uri: https://gamerhack900v4.netlify.app/kexploit.js
+File Name: C:\Downloaded Web Sites\gamerhack900v4.netlify.app\kexploit.js
+Content Type: application/javascript
+
+Uri: https://gamerhack900v4.netlify.app/rop.js
+File Name: C:\Downloaded Web Sites\gamerhack900v4.netlify.app\rop.js
+Content Type: application/javascript
+
+Uri: https://gamerhack900v4.netlify.app/style.css
+File Name: C:\Downloaded Web Sites\gamerhack900v4.netlify.app\style.css
+Content Type: text/css
+
+Uri: https://gamerhack900v4.netlify.app/webactivator
+File Name: C:\Downloaded Web Sites\gamerhack900v4.netlify.app\webactivator.html
+Content Type: text/html
+
