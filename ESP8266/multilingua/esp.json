@@ -1,0 +1,11 @@
+{
+  "name": "Alerene PS4 Host",
+  "version": "GOLDHEN V2.4B5",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [{ "path": "MultiLingua_ESP8266_2.4_B5.bin", "offset": 0 }]
+    }
+  ]
+}
