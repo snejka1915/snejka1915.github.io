@@ -1,0 +1,11 @@
+{
+  "name": "Alerene PS4 Host",
+  "version": "GOLDHEN V2.4B14",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "MultiLingua_ESP32S2_2.4_B14.bin", "offset": 0 }]
+    }
+  ]
+}

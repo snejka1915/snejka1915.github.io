@@ -1,0 +1,11 @@
+{
+  "name": "★ PS4MACEDO ",
+  "version": "★ v2.4b16.2  ",
+  "home_assistant_domain": "esphome",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "ps4esp32s2.bin", "offset": 0 }]
+    }
+  ]
+}
