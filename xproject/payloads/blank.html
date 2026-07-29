@@ -1,0 +1,35 @@
+<html>
+<head>
+<link rel="stylesheet prefetch" href="exploit.css">
+</head>
+<body>
+<div id="info" class="info">SELECT A PAYLOAD <span id="user1" style="text-transform:uppercase"></span></div>
+<script>
+if (sessionStorage.BackFix != null){sessionStorage.removeItem('BackFix');window.history.forward();}
+if (parent.RC("UserName") == "user" || parent.RC("UserName") == null){document.getElementById('user1').innerHTML = "";}
+else {document.getElementById('user1').innerHTML = parent.RC("UserName");}
+
+if (window.parent.cachedxp === "true" && sessionStorage.CacheInstalled!=null) {sessionStorage.removeItem('CacheInstalled');window.parent.document.getElementById('Ttitle').innerHTML='X-PROJECT CACHED:';window.parent.document.getElementById('Tsubtitle').innerHTML='THANK YOU!';window.parent.pop();} 
+else if (parent.RC("UserName") == "user" && parent.RC('WelcomePop') == "ON" && sessionStorage.Settings == null && sessionStorage.Credits == null && sessionStorage.Details == null && sessionStorage.Stats == null && sessionStorage.Changelog == null){
+    window.parent.document.getElementById('Ttitle').innerHTML='X-PROJECT TIP:';
+    window.parent.document.getElementById('Tsubtitle').innerHTML='Enter a Username';
+    window.parent.pop();
+}
+else if (parent.RC("UserName") != null && parent.RC('WelcomePop') == "ON" && sessionStorage.Settings == null && sessionStorage.Credits == null && sessionStorage.Details == null && sessionStorage.Stats == null && sessionStorage.Changelog == null){
+    window.parent.document.getElementById('Ttitle').innerHTML='WELCOME BACK:';
+    window.parent.document.getElementById('Tsubtitle').innerHTML=parent.RC("UserName");
+    window.parent.pop();
+}
+//fix for Settings loss on memory error after clear webdata and cookies.
+window.onunload=function(e){
+if (parent.RC('xmbcolor')==null) {parent.SetMissingValues();parent.ColorChanger();}
+}
+
+parent.SS.removeItem('Settings');
+parent.SS.removeItem('Credits');
+parent.SS.removeItem('Details');
+parent.SS.removeItem('Stats');
+parent.SS.removeItem('Changelog');
+</script>
+</body>
+</html>
