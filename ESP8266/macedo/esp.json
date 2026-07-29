@@ -1,0 +1,11 @@
+{
+  "name": "PS4MACEDO SUPERLIGHT 17",
+  "version": "GOLDHEN V2.2.5b2",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [{ "path": "ps4macedo900slESP8266esv5.bin", "offset": 0 }]
+    }
+  ]
+}
