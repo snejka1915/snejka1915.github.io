@@ -1,0 +1,11 @@
+{
+  "name": "Echo Stretch PS5 Jailbreak Hosts 30.10.23",
+  "version": "FW 4.03, 4.50",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "7in1.bin", "offset": 0 }]
+    }
+  ]
+}

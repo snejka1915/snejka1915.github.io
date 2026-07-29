@@ -1,0 +1,11 @@
+{
+  "name": "Kameleon PS5 Host",
+  "version": "FW 4.30, 4.50",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [{ "path": "Kameleon_PS5.bin", "offset": 0 }]
+    }
+  ]
+}
