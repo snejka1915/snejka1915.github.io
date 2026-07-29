@@ -1,0 +1,11 @@
+{
+  "name": "ECHO STRETCH AUTO",
+  "version": "GOLDHEN V2.4B13",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [{ "path": "900AC.GH24B13.bin", "offset": 0 }]
+    }
+  ]
+}
