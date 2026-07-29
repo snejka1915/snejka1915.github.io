@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en, ru">
+  <meta charset="utf-8">
+    <style>
+        body{color: rgb(255, 255, 255); background-image:url(images/background6.jpg); background-attachment:fixed; background-size:100%; background-repeat:no-repeat;}
+        input{width:25px;height:25px;background-color: transparent;}
+            button {
+                        background-color: white;
+                        border: 2px solid rgb(73, 54, 54);
+                       /* border-radius: 10px;*/
+                        font-family: 'Acme', sans-serif;
+                        text-shadow: 3px 3px 3px rgb(182, 179, 179);
+                        text-align: center;
+                                    }
+            button:hover {
+                        box-shadow: 0 2px 20px 0 rgba(255, 255, 255, 0.616);
+                        color: rgb(248, 248, 248);
+                        /*border-radius: 10px;*/
+            }
+           </style>
+<head>
+<meta charset="utf-8">
+<title>ESP32 S2 JailBreak 9.00</title>
+<link rel="shortcut icon" href="/ESP32S2/images/favicon.ico"></link>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+<link rel="stylesheet prefetch" href="Style_900.css">
+<script>
+    document.cookie = 'kex=1';
+</script>
+<script>
+    function showdate() {
+  var dt = new Date();
+    Hour= dt.getHours();
+  Minute= dt.getMinutes();
+     Day=dt.getDate();
+   Month=dt.getMonth()+1;
+   Year=dt.getFullYear();
+if (Minute < 10) { Minute = "0" + Minute; };
+if (Hour < 10) { Hour = "0" + Hour; };
+document.getElementById("date").innerHTML = (Day+"."+Month+"."+Year);
+document.getElementById("clock").innerHTML = (Hour+":"+Minute);
+  }
+  
+  setInterval(showdate,0);
+</script>
+</head>
+
+<body class="bg-darker">
+    <div class="container">
+		<div class="section_header">
+			<img class="services_item" src="images/ESP32.png"> 
+			<span id="date" style="float:left; font-weight:bold; margin-top: -48px; font-size:38px; color: #D0690F;"></span>
+			<span id="clock" style="float:right; font-size:38px; margin-top: -48px; font-weight:bold; color: #D0690F;"></span>
+       
+    </div>
+	</div>
+</div>
+    </div>
+
+
+    <h1 id=msgs2 style='font-size:26px; text-align:center; margin-top: 6px; margin-bottom: 6px; color: yellow; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>ОПИСАНИЕ</h1>
+    <div style="text-align:center" id="MyItems">
+     <br>
+      <a href="/ESP32S2/echostretch7/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='ECHO STRETCH 7 in 1 GOLDHEN 2.3'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" > ECHO STRETCH 2.3</a>
+	  <a href="/ESP32S2/echostretchAC2/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='ECHO STRETCH AUTO GOLDHEN 2.3'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" > ECHO STRETCH AC2.3</a>
+	  <a href="/ESP32S2/es_7in1_24b14/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='ECHO STRETCH 7 in 1 GOLDHEN 2.4b14'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" > ECHO STRETCH 2.4B14</a>
+	  <a href="/ESP32S2/es_900ac14/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='ECHO STRETCH AUTO GOLDHEN 2.4b14'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" > ECHO STRETCH 2.4B14</a>
+      <a href="/ESP32S2/es7in1_24b16/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='ECHO STRETCH 7 in 1 GOLDHEN 2.4b16.2'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 18px;" >ECHO STRETCH 2.4b16.2</a>
+      <a href="/ESP32S2/es900_24b16/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='ECHO STRETCH AUTO GOLDHEN 2.4b16.2'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 18px;" >ECHO STRETCH 2.4b16.2</a>
+      <a href="/ESP32S2/prb2.3/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PRB HOST ESP32 S2 GoldHEN v2.3'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >PRB 2.3</a>
+      <br>
+      <a href="/ESP32S2/prb_24b16/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PRB HOST ESP32 S2 GoldHEN v2.4b16.2'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >PRB 2.4b16.2</a>
+      <a href="/ESP32S2/kme23/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='KAMELEON AUTO LITE GOLDHEN 2.3'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >KAMELEON 2.3</a>
+      <a href="/ESP32S2/kmeps4_24b16/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='KAMELEON AUTO GOLDHEN 2.4b16.2'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 18px;" >KAMELEON 2.4b16.2</a>
+      <a href="https://ps4xploit900.github.io/esp32s2/" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4 SERVER XPLOIT v2 For ESP32-S2 GOLDHEN 2.4b16.2'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >PS4 XPLOIT</a>
+      <a href="/ESP32S2/macedo_23/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4MACEDO GOLDHEN 2.3'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >PS4MACEDO 2.3</a>
+      <a href="/ESP32S2/multi_24b14/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4 SERVER XPLOIT Alerene MultiLingua For ESP32-S2 GOLDHEN 2.4b14'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >ALERENE 2.4B14</a>
+       <br>
+      <a href="/ESP32S2/karo900C/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Karo Host AUTO GOLDHEN 2.2.2 06.05.22'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >KARO</a>
+      <a href="/ESP32S2/karo900S/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Karo Super Fast Host AUTO GOLDHEN 2.2.2 06.05.22'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >KARO SF</a>
+       <a href="/ESP32S2/nightking23/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='NIGHT KING 900FW AUTO JB & MOUNT USB For ESP32-S2 v7.1'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >NIGHT KING 2.3</a> 
+      <a href="https://nightkinghost.com/esp/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='NIGHT KING 900FW ONLINE For ESP32-S2'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >NIGHTKING ONLINE</a> 
+	 <br>
+     <a href="/ESP32S2/macedo_24b16/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4MACEDO GOLDHEN 2.4b16.2'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 19px;" >PS4MACEDO 2.4b16.2</a>
+     <a href="/ESP32S2/leeful_24b16/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='LeeFul GOLDHEN 2.4b16.2'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 20px;" >LeeFul 2.4b16.2</a>
+     <a href="/ESP32S2/ps4xploit/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4Xploit GOLDHEN 2.4b16.2'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style="font-size: 20px;" >PS4Xploit 2.4b16.2</a>
+<br>
+      <h1 style="font-size: 30px; font-family: Comic Sans MS, Comic Sans;">Оригиналы онлайн прошивальщиков от Macedo</h1>
+      <a href="https://ps4macedo.github.io/esp32s2installer7us/" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4MACEDO GOLDHEN 2.3'" ; onmouseout="msgs2.innerHTML='DESCRIPTION'"; style="font-size: 20px;" >GoldHEN 2.3</a>
+      <a href="https://ps4macedo.github.io/esp32s2installer14/" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4MACEDO GOLDHEN 2.4b16.2'" ; onmouseout="msgs2.innerHTML='DESCRIPTION'"; style="font-size: 20px;" >GoldHEN 2.4b16.2</a>
+      <a href="https://ps4macedo.github.io/esp32s2LIGHTinstaller/" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4MACEDO GOLDHEN 2.4b17.3 Light Host'" ; onmouseout="msgs2.innerHTML='DESCRIPTION'"; style="font-size: 20px;" >GoldHEN 2.4b17.3</a>
+       <a href="https://ps4macedo.github.io/esp32s2FULLinstaller2/" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='PS4MACEDO GOLDHEN 2.4b17.3 Full Host'" ; onmouseout="msgs2.innerHTML='DESCRIPTION'"; style="font-size: 20px;" >GoldHEN 2.4b17.3</a>
+	   <br>
+      <br>
+      <h1 style="font-size: 30px; font-family: Comic Sans MS, Comic Sans;">Онлайн-прошивальщик для данных видов плат</h1>
+      <img style="width: 170px;" src="images/ESP32_S2_Mini.png"><img style="width: 170px;" src="images/ESP32_S2_Key.png"><img style="width: 170px;" src="images/ESP32_S2_Key2.png">
+<br>
+<br>
+      <a href="https://snejka1915.ucoz.net/index.html" class="genric-btn danger-border" onMouseOver="msgs2.innerHTML='Вернуться на главную страницу'" ; onmouseout="msgs2.innerHTML='ОПИСАНИЕ'"; style='font-size:22px;text-align:center; font-family: Comic Sans MS, Comic Sans; font-weight: 700;'>На главную</a>
+      </body>
+</html>
