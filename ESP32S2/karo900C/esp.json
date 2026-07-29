@@ -1,0 +1,11 @@
+{
+  "name": "Karo Host GoldHen 2.2.2",
+  "version": "GOLDHEN 2.2.2",
+    "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "900C.bin", "offset": 0 }]
+    }
+  ]
+}

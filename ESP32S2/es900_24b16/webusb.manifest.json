@@ -1,0 +1,11 @@
+{
+  "name": "★ Echo Stretch PS4 Hosts 900AC ",
+  "version": "★ v2.4b16.2  ",
+  "home_assistant_domain": "esphome",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [{ "path": "EchoStretch.900AC.GH24B16.2.bin", "offset": 0 }]
+    }
+  ]
+}
