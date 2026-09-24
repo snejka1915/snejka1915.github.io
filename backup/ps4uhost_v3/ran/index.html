@@ -1,0 +1,188 @@
+<!DOCTYPE html>  <html>  
+<head>  
+    <meta charset="utf-8">  
+    <title>PS4 - Exploit Host - 5.05-13.52</title>  
+    <link rel="stylesheet" href="../style.css">  
+</head>  
+<body>  
+    <div class="container">
+        <header>  
+            <h1 class="main-title">  
+                <span class="name-mustafa">PS4 WEBKIT</span>  
+            </h1>  <div class="subtitle">Определение диапазона</div>  
+    <br>  
+        <div class="version-badge">FW 5.05 - 13.52</div>  
+    </header>  
+    <br>
+    <hr class="separator">
+    <div class="status-bar">  
+        <span id="msgs" class="status-text loading">Взлом — ожидайте…</span>  
+    </div>
+    <h1 style="margin-top: 40px; font-size: 14px; color: #555967;">  
+    Специально для 4PDA Sony PlayStation 4 - Взлом  
+        <br>  
+        Особая благодарность всем разработчикам сцены  
+    </h1>  
+</div>  
+
+<script>  
+        // ======== Та же самая логика программного обеспечения ========
+    var uaFull = navigator.userAgent;  
+    var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);  
+    var isPS4 = match !== null;  
+    var fwVersion = isPS4 ? match[1] : "Unknown";  
+    var fwNum = parseFloat(fwVersion);  
+
+    var msgs = document.getElementById('msgs');  
+
+    function onScriptError() {  
+        msgs.innerHTML = "Данные не найдены! — Очистите данные браузера и переустановите кэш ...";  
+    }  
+
+    if (!isPS4) {  
+        document.addEventListener("DOMContentLoaded", () => {  
+            msgs.innerHTML = "Только для PS4 с поддерживаемой прошивкой 5.05–13.52";  
+            msgs.className = "status-text error";  
+        });  
+    } else {  
+        if (window.applicationCache.status == '0') {  
+            if (fwNum === 5.05) {
+                msgs.innerHTML = "Установка кэша для " + fwVersion + "...";
+                setTimeout(function() { window.location.replace("cache505.html"); }, 500);
+            } else if (fwNum === 6.72) {
+                msgs.innerHTML = "Установка кэша для " + fwVersion + "...";
+                setTimeout(function() { window.location.replace("cache672.html"); }, 500);
+            } else if (fwNum >= 7.00 && fwNum <= 8.52) {  
+                msgs.innerHTML = "Установка кэша для " + fwVersion + "...";  
+                setTimeout(function() {  
+                    window.location.replace("cache700.html");  
+                }, 500);  
+            } else if (fwNum >= 9.00 && fwNum <= 9.60) {  
+                msgs.innerHTML = "Установка кэша для " + fwVersion + "...";  
+                setTimeout(function() {  
+                    window.location.replace("cache900.html");  
+                }, 500);  
+            } else if (fwNum >= 10.00 && fwNum <= 11.02) {  
+                msgs.innerHTML = "Установка кэша для " + fwVersion + "...";  
+                setTimeout(function() {  
+                    window.location.replace("cachecss.html");  
+                }, 500);  
+            } else if (fwNum >= 11.50 && fwNum <= 13.00) {  
+                msgs.innerHTML = "Установка кэша для " + fwVersion + "...";  
+                setTimeout(function() {  
+                    window.location.replace("cacheslopkit.html");  
+                }, 500);  
+            } else if (fwNum >= 13.02 && fwNum <= 13.52) {
+                msgs.innerHTML = "Установка кэша для " + fwVersion + "...";
+                setTimeout(function() {
+                    window.location.replace("cacherelapse.html");
+                }, 500); 
+            } else {  
+                document.addEventListener("DOMContentLoaded", () => {  
+                    msgs.innerHTML = 'Неподдерживаемая прошивка: <span style="color: red;">' + fwVersion + '</span>';  
+                    msgs.className = "status-text error";  
+                });  
+            }  
+        } else {  
+            // Автоматический запуск exploit без кнопок
+            if (fwNum === 5.05) {
+                msgs.innerHTML = "Загрузка эксплойта для " + fwVersion + "...";
+                var script505 = document.createElement("script");
+                script505.src = "505/exploit.js";
+                script505.onerror = onScriptError;
+                document.head.appendChild(script505);
+            } else if (fwNum === 6.72) {
+                msgs.innerHTML = "Загрузка эксплойта для " + fwVersion + "...";
+                var passCounter = document.createElement("span");
+                passCounter.id = "passCounter";
+                passCounter.style.display = "none";
+                document.body.appendChild(passCounter);
+                var failCounter = document.createElement("span");
+                failCounter.id = "failCounter";
+                failCounter.style.display = "none";
+                document.body.appendChild(failCounter);
+                window.passCounter = passCounter;
+                window.failCounter = failCounter;
+                if (localStorage.passcount == null) localStorage.passcount = 0;
+                if (localStorage.failcount == null) localStorage.failcount = 0;
+                window.passCounter.innerHTML = localStorage.passcount;
+                window.failCounter.innerHTML = localStorage.failcount;
+                LoadedMSG = "Эксплойт успешно выполнен ...";
+                PLfile = "goldhen_v2.4b18.12.bin";
+                // Variant B: the original chain loads jb.js BEFORE the WebKit exploit.
+                // Keep the original execution order, then start the kernel stage.
+                var jb672 = document.createElement("script");
+                jb672.src = "672/jb.js";
+                jb672.onload = function () {
+                    var webkit672 = document.createElement("script");
+                    webkit672.src = "672/webkit.js";
+                    webkit672.onload = function () {
+                        setTimeout(jailbreak, 500);
+                    };
+                    webkit672.onerror = onScriptError;
+                    document.head.appendChild(webkit672);
+                };
+                jb672.onerror = onScriptError;
+                document.head.appendChild(jb672);
+            } else if (fwNum >= 7.00 && fwNum <= 8.52) {  
+                msgs.innerHTML = "Загрузка эксплойта для " + fwVersion + "...";  
+                var script = document.createElement('script');  
+                script.type = 'module';  
+                script.src = "700/alert.js";  
+                script.onerror = onScriptError;  
+                document.head.appendChild(script);  
+            }  
+            else if (fwNum >= 9.00 && fwNum <= 9.60) {  
+                msgs.innerHTML = "Загрузка эксплойта для " + fwVersion + "...";  
+                var script = document.createElement('script');  
+                script.type = 'module';  
+                script.src = "900/alert.js";  
+                script.onerror = onScriptError;  
+                document.head.appendChild(script);  
+            }  
+            else if (fwNum >= 10.00 && fwNum <= 11.02) {  
+                msgs.innerHTML = "Загрузка эксплойта для " + fwVersion + "...";  
+                var script = document.createElement('script');  
+                script.src = "css/main.js";  
+                script.onerror = onScriptError;  
+                script.onload = function () {  
+                    setTimeout(function () {  
+                        doJb();  
+                    }, 500);  
+                };  
+                document.head.appendChild(script);  
+            }  
+            else if (fwNum >= 11.50 && fwNum <= 12.02) {  
+                msgs.innerHTML = "Загрузка эксплойта для " + fwVersion + "...";  
+                var script = document.createElement('script');  
+                script.type = 'module';  
+                script.src = "slopkit/chain_lapse.js";  
+                script.onerror = onScriptError;  
+                document.head.appendChild(script);  
+            }  
+            else if (fwNum >= 12.50 && fwNum <= 13.00) {  
+                msgs.innerHTML = "Загрузка эксплойта для " + fwVersion + "...";  
+                var script = document.createElement('script');  
+                script.type = 'module';  
+                script.src = "slopkit/chain_poops.js";  
+                script.onerror = onScriptError;  
+                document.head.appendChild(script);  
+            }
+            else if (fwNum >= 13.02 && fwNum <= 13.52) {
+                msgs.innerHTML = "Запуск Relapse для " + fwVersion + "...";
+                window.jailbreakSuccess = function () {
+                    msgs.innerHTML = "Эксплойт успешно выполнен.";
+                    msgs.className = "status-text success";
+                };
+                var script = document.createElement('script');
+                script.type = 'module';
+                script.src = "relapse/jb.js?log=0";
+                script.onerror = onScriptError;
+                document.head.appendChild(script);
+            }  
+        }  
+    }  
+</script>
+
+</body>  
+</html>
