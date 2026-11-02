@@ -1,0 +1,24 @@
+CACHE MANIFEST
+# Personal PS4 13.02 Host · 02.11.2026 · revision 9.1 · THEMED IDLE BUTTON
+# build 50ec483f9985a3f7e476d3491a32bde086bf40451e89d4ea57885e6f546e67db
+
+CACHE:
+index.html
+style.css
+ui.js
+panels.js
+goldhen.bin
+engine/launch.html
+engine/launch.html?log=1
+engine/jb.js
+engine/jb.js?v=19
+engine/core.js
+engine/core.js?v=10
+engine/mem.js
+engine/int64.js
+engine/ps4_offsets.js
+engine/rpc_worker.js
+engine/patches/1302.bin
+
+NETWORK:
+*

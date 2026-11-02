@@ -1,0 +1,10 @@
+/host.appcache
+  Content-Type: text/cache-manifest; charset=utf-8
+  Cache-Control: no-cache, must-revalidate
+
+/engine/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+/*.bin
+  Content-Type: application/octet-stream
+
