@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4b18.13
+- Added support for 14.00
+- Fixed FTP SIZE issue (https://github.com/GoldHEN/GoldHEN/issues/401)
+
 ## v2.4b18.12
 - Added support for 13.02, 13.04 and 13.50
 

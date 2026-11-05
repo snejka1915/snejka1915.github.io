@@ -22,6 +22,7 @@ Thanks to the testers who had so much patience:
 - MODDED WARFARE
 - vapour
 - DrYenyen
+- SaudiDos
 
 
 Last but not least, my friends ctn and Kameleon for their continuous support, not only technical!
