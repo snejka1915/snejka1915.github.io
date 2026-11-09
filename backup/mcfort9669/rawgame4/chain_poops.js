@@ -56,11 +56,12 @@ function mark(tag, detail) {
         return c ? '<span class="' + c + '">' + l + "</span>" : l;
     }).join("\n");
     outEl.scrollTop = outEl.scrollHeight;
+    if (window.hostErrorReport) window.hostErrorReport.note(lines[lines.length - 1]);
     post(tag, raw);
 }
 
 function trace(tag, detail) { if (VERBOSE) mark(tag, detail); else post(tag, detail); }
-function state(t, c) { stateEl.textContent = t; stateEl.className = c || ""; if (window.hostErrorReport) { window.hostErrorReport.stage(t); if (c === "bad") window.hostErrorReport.fail(t, lines.length ? lines[lines.length - 1] : ""); if (t === "ALL DONE") window.hostErrorReport.success(); } }
+function state(t, c) { stateEl.textContent = t; stateEl.className = c || ""; if (window.hostErrorReport) { window.hostErrorReport.stage(t); if (t === "ALL DONE") window.hostErrorReport.success(); } }
 function check(name, ok, detail) {
     if (ok) { passCount++; mark("PROOF-OK", name + (detail ? "  " + detail : "")); }
     else { failCount++; mark("PROOF-FAIL", name + (detail ? "  " + detail : "")); }
