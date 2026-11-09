@@ -103,6 +103,7 @@ function updateJbStats(attempt, isSuccess, revert) {
 
 // Called by exploit implementations after a successful jailbreak.
 function jailbreakSuccess(statusMessage) {
+    if (window.mcfortIntegratedBridge && window.mcfortIntegratedBridge.active()) window.mcfortIntegratedBridge.send('success', statusMessage || 'GoldHEN запущен.');
     if (window.hostErrorReport) window.hostErrorReport.success();
     var isBinLoader = storage.session.getBoolean('binloader', false);
     if (storage.session.getBoolean('jailbreakNow', true)) {

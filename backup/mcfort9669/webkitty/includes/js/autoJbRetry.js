@@ -15,6 +15,14 @@ function setAutoJb(checked) {
 
 // When jailbreak succeeds, this will be stopped
 function autoJailbreak() {
+    // v11.7 forced this setting off on FW 11.00. Restore the former retry
+    // behavior once, without starting a retry merely by opening the page.
+    if (/PlayStation 4[ \/]11\.00\b/i.test(navigator.userAgent)
+        && storage.getString('mcfort9669.1100.retry-restored.v11.8', null) !== 'yes') {
+        storage.set('autoJbRetry', true);
+        storage.session.remove('autoJbRetry');
+        storage.set('mcfort9669.1100.retry-restored.v11.8', 'yes');
+    }
     // used for 6.7x jailbreak when userland is loaded
     var jbNow = storage.session.getBoolean('jailbreakNow', false);
     if (jbNow) {

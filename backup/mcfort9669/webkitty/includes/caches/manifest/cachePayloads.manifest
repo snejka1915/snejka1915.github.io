@@ -1,9 +1,9 @@
 CACHE MANIFEST
+# MCFORT9669 v11.7: nonblocking WebKitty page
 # MCFORT9669 report 11.1
 # Generated on 2026-11-01
 
 CACHE:
-../../../../error-report.js
 ../../../
 ../../../index.html
 ../../../includes/assets/icons/cat-paw-btns.svg
