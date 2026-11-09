@@ -23,6 +23,10 @@ const logger = {
       }
 
       this.console.append(`${msg}\n`);
+      if (window.mcfortIntegratedBridge && window.mcfortIntegratedBridge.active() &&
+          (/^\[-\]/.test(msg) || /UAF|ARW|LAPSE|kpatch|kernel patch|Created bin thread|===END===|===USERLAND===/i.test(msg))) {
+        window.mcfortIntegratedBridge.send(/^\[-\]/.test(msg) ? 'error' : 'line', msg);
+      }
       this.consoleElement.scrollTop = this.console.scrollHeight;
 
       const data = JSON.stringify({
