@@ -494,3 +494,6 @@ body:not(.glass-off) .versions #goldhenNews{
   .launch-meter{width:100px}
   #launchProgressValue{left:calc(50% + 58px);min-width:28px}
 }
+
+/* Keep the embedded WebKitty viewport at the PS4 browser size for CSSFontFace. */
+.engine-frame.unified-webkitty-frame{left:-200vw;top:0;width:100vw;height:100vh}

@@ -1,6 +1,6 @@
 CACHE MANIFEST
-# MCFORT9669 v11.2 · firmware auto routing · 2026-11-05
-# build 11.2-122271b9cac4a778d40c
+# MCFORT9669 v11.9 · unified FW 11.00 · 2026-11-06
+# build 11.9-webkitty-bridge
 
 CACHE:
 index.html
@@ -41,14 +41,12 @@ rawgame4/chain_lapse.js
 rawgame4/int64.js
 rawgame4/mem.js
 rawgame4/rpc_worker.js
-rawgame4/.nojekyll
 rawgame4/ps4_offsets.js
 rawgame4/core.js
 rawgame4/logo_raw.png
 rawgame4/cache.appcache
 rawgame4/chain_poops.js
 rawgame4/run_lapse.html
-rawgame4/.gitattributes
 rawgame4/run_poops.html
 rawgame4/payload.bin
 rawgame4/index.html

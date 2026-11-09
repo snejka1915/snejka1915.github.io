@@ -8,48 +8,18 @@
   var module=path.indexOf('/rawgame4/')!==-1?'RawGame4 '+(path.indexOf('poops')!==-1?'Poops':'Lapse'):
     path.indexOf('/webkitty/')!==-1?'WebKitty':
     path.indexOf('/afterglow/')!==-1?'Afterglow':'MCFORT9669';
-  var current=null, ended=false, latestLine='', panel=null, content=null, scheduled=false;
+  var current=null, ended=false, latestLine='', diagnostic='', scheduled=false;
   function save(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch(e){}}
   function read(key){try{return JSON.parse(localStorage.getItem(key)||'null');}catch(e){return null;}}
   function remove(key){try{localStorage.removeItem(key);}catch(e){}}
   function clean(value){return String(value==null?'':value).replace(/[\x00-\x1f\x7f]/g,' ').slice(0,320);}
-  function makePanel(){
-    if(panel)return;
-    var css=document.createElement('style');
-    css.textContent='#hostErrorBackdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483647;background:rgba(3,6,12,.94);display:flex;align-items:center;justify-content:center;padding:14px;box-sizing:border-box;color:#eef4ff;font:18px/1.4 Arial,sans-serif}#hostErrorBackdrop[hidden]{display:none!important}#hostErrorCard{width:100%;max-width:720px;max-height:94vh;overflow:auto;box-sizing:border-box;background:#111923;border:2px solid #ff9c83;border-radius:16px;padding:22px;box-shadow:0 0 36px rgba(255,96,81,.22)}#hostErrorCard h2{font-size:27px;color:#ffc1ad;margin:0 0 14px}#hostErrorCard .her-row{border-top:1px solid #36485b;padding:8px 0;overflow-wrap:break-word}#hostErrorCard b{color:#89dcff}#hostErrorCard .her-detail{white-space:pre-wrap;background:#1d2936;padding:12px;border-radius:8px;overflow-wrap:break-word}#hostErrorCard p{font-size:15px;color:#c3d0df}#hostErrorCard button{font:inherit;background:#29465b;color:white;border:1px solid #93dfff;border-radius:9px;padding:9px 18px;margin-top:5px}';
-    document.head.appendChild(css);
-    panel=document.createElement('div');panel.id='hostErrorBackdrop';panel.hidden=true;
-    var card=document.createElement('div');card.id='hostErrorCard';card.setAttribute('role','alertdialog');card.setAttribute('aria-modal','true');card.setAttribute('aria-label','Отчёт об ошибке запуска');
-    var title=document.createElement('h2');title.id='herTitle';card.appendChild(title);
-    content=document.createElement('div');card.appendChild(content);
-    var hint=document.createElement('p');hint.textContent='Сфотографируйте этот экран и отправьте автору хоста. Если консоль выключилась сама, отчёт показывает только последний сохранённый этап.';card.appendChild(hint);
-    var close=document.createElement('button');close.type='button';close.textContent='Закрыть';close.addEventListener('click',function(){panel.hidden=true;var saved=read(lastKey);if(saved){saved.seen=true;save(lastKey,saved);}});card.appendChild(close);
-    panel.appendChild(card);document.body.appendChild(panel);
-  }
-  function row(label,value,detail){
-    var node=document.createElement('div');node.className='her-row';
-    var b=document.createElement('b');b.textContent=label+': ';node.appendChild(b);
-    var span=document.createElement(detail?'div':'span');span.textContent=clean(value)||'—';
-    if(detail)span.className='her-detail';node.appendChild(span);content.appendChild(node);
-  }
-  function show(data,interrupted){
-    if(!document.body)return;
-    makePanel();content.textContent='';
-    document.getElementById('herTitle').textContent=interrupted?'Предыдущий запуск прервался':'Ошибка запуска';
-    row('Прошивка PS4',data.fw||fw);
-    row('Модуль',data.module||module);
-    row('Последний этап',data.stage||'Не определён');
-    row('Сообщение',interrupted?'Консоль или браузер закрылись до подтверждения результата. Точная причина неизвестна.':data.message||'Ошибка без подробностей',true);
-    if(data.detail&&data.detail!==data.message)row('Строка журнала',data.detail,true);
-    row('Время',data.time||'—');
-    panel.hidden=false;
-  }
+  function show(){/* Module logs and host journal show errors without a blocking dialog. */}
   function writeActive(){if(current)save(activeKey,current);}
   function start(name){
     ended=false;
     var previous=read(lastKey);if(previous&&previous.seen===false){previous.seen=true;save(lastKey,previous);}
     current={fw:fw,module:name||module,stage:'Запуск модуля',message:'',detail:'',time:new Date().toLocaleString('ru-RU')};
-    latestLine='';writeActive();
+    latestLine='';diagnostic='';writeActive();
   }
   function stage(value){
     if(!current||!value)return;
@@ -63,23 +33,27 @@
     if(current && /^(?:stage|step)\b/i.test(line))stage(line);
     if(current&&(color==='red'||/^(?:Error:|FAILED\b|THREW\b)/i.test(line)))fail(line);
   }
+  function note(value){
+    var line=clean(value);if(!line||!current)return;
+    latestLine=line;
+    if(/(?:STEP4D-FAILED|THREW|PROOF-FAIL|PAYLOAD-THREW|KPATCH-FETCH-THREW|PAYLOAD-FETCH-THREW|ERROR|MISSING)/i.test(line)){
+      diagnostic=line;current.detail=line;writeActive();
+    }
+  }
   function fail(message,detail){
     if(ended)return;
     if(!current)start(module);
     current.message=clean(message)||'Ошибка без подробностей';
-    current.detail=clean(detail||latestLine);
+    current.detail=clean(diagnostic||detail||latestLine);
     current.time=new Date().toLocaleString('ru-RU');
     current.seen=false;save(lastKey,current);remove(activeKey);show(current,false);
     current=null;ended=true;
   }
-  function success(){current=null;ended=true;remove(activeKey);}
+  function success(){current=null;ended=true;remove(activeKey);remove(lastKey);}
   function restore(){
-    var saved=read(activeKey);
-    if(saved&&saved.fw&&saved.module){
-      remove(activeKey);
-      saved.seen=false;save(lastKey,saved);
-      show(saved,true);
-    }else{var last=read(lastKey);if(last&&last.seen===false)show(last,false);}
+    // A prior WebKitty run may have succeeded without acknowledging an old
+    // interrupted record. Never block the next visit with that stale record.
+    remove(activeKey);remove(lastKey);
   }
   function scan(){
     scheduled=false;
@@ -91,14 +65,21 @@
     if(value)stage(value);
     if(out){
       var line=out.lastElementChild;
-      if(line&&line!==panel){
+      if(line){
         latestLine=clean(line.textContent);
         if(module==='WebKitty'&&line.style&&line.style.color==='red'){fail(latestLine);return;}
       }
     }
-    if(module.indexOf('RawGame4')===0&&value==='ALL DONE'){success();return;}
-    if(module.indexOf('RawGame4')===0&&
-       (/(?:REBOOT NEEDED|ROOT .* NO REBOOT|REPAIRED --)/i.test(value))){fail('GoldHEN не запущен: '+value,latestLine);return;}
+    if(module.indexOf('RawGame4')===0){
+      if(value==='ALL DONE'){success();return;}
+      if(/REPAIRED -- tearing down/i.test(value))return;
+      if(/^no win in \d+ attempts/i.test(value)){
+        fail('Цепочка Lapse не сработала в этом запуске: '+value,latestLine);return;
+      }
+      if(/^(?:REBOOT THE CONSOLE|FREED BUT NOT RECLAIMED|ROOT .* NO REBOOT|REPAIRED -- NO REBOOT)/i.test(value)){
+        fail('GoldHEN не запущен: '+value,latestLine);return;
+      }
+    }
     if(state&&/\b(?:bad|fail)\b/i.test(state.className||'')){fail(value||'Сбой модуля',latestLine);return;}
     if(document.body&&/\bfail\b/.test(document.body.className||'')&&module==='Afterglow'){
       fail(msg&&msg.textContent||value||'Ошибка Afterglow',latestLine);
@@ -114,11 +95,11 @@
     });
     if(module==='Afterglow')observer.observe(document.body,{attributes:true,attributeFilter:['class']});
   }
-  window.hostErrorReport={start:start,stage:stage,onLog:onLog,fail:fail,success:success,restore:restore};
+  window.hostErrorReport={start:start,stage:stage,note:note,onLog:onLog,fail:fail,success:success,restore:restore};
   window.addEventListener('error',function(e){if(current)fail(e.message||'Ошибка JavaScript');});
   window.addEventListener('unhandledrejection',function(e){if(current)fail(e.reason&&e.reason.message||e.reason||'Необработанная ошибка');});
   function boot(){
-    makePanel();watch();
+    watch();
     if(module==='RawGame4 Lapse'||module==='RawGame4 Poops'){
       var once='';try{once=sessionStorage.getItem('mcfort9669.route.once')||'';}catch(e){}
       if(once==='rawgame4/'+path.split('/').pop())start(module);
