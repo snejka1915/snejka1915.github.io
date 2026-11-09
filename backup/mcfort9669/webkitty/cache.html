@@ -35,6 +35,7 @@
         var statusEl = document.getElementById('cacheStatus');
         var fillEl = document.getElementById('progressFill');
         var frame = document.getElementById('cacheFrame');
+        function relayHost(stage,line,percent){try{if(window.parent!==window && sessionStorage.getItem('mcfort9669.integrated1100.v1')==='1' && /PlayStation 4[ \/]11\.00\b/i.test(navigator.userAgent))window.parent.postMessage({type:'mcfort-webkitty-bridge',stage:stage,line:line||'',percent:percent},location.origin);}catch(e){}}
 
         // Listen for postMessages from the iframe (iframe_cache.js)
         window.addEventListener('message', function (event) {
@@ -42,6 +43,7 @@
             if (!data || !data.type) return;
 
             if (data.type === 'CACHE_PROGRESS') {
+                relayHost('cache','Загрузка файлов WebKitty...',data.percent >= 0 ? data.percent : -1);
                 if (data.percent >= 0) {
                     fillEl.style.width = data.percent + '%';
                     statusEl.textContent = 'Downloading... ' + data.percent + '%';
@@ -49,6 +51,7 @@
                     statusEl.textContent = 'Downloading... (' + data.loaded + ' of ' + data.total + ')';
                 }
             } else if (data.type === 'CACHE_COMPLETE' || data.type === 'CACHE_EXISTS') {
+                relayHost('cache','Файлы WebKitty готовы.',100);
                 fillEl.style.width = '100%';
                 statusEl.textContent = data.type === 'CACHE_EXISTS' ? 'Already cached! Redirecting...' : 'Done! Redirecting...';
                 setTimeout(function () {
@@ -58,10 +61,10 @@
             } else if (data.type === 'CACHE_CHECKING') {
                 statusEl.textContent = 'Checking cache...';
             } else if (data.type === 'CACHE_DOWNLOADING') {
-                statusEl.textContent = 'Caching files...';
+                statusEl.textContent = 'Caching files...';relayHost('cache','Сохраняем модуль WebKitty.',0);
             } else if (data.type === 'CACHE_ERROR') {
                 var reason = data.reason || 'Unknown error';
-                statusEl.textContent = 'Cache error: ' + reason;
+                statusEl.textContent = 'Cache error: ' + reason;relayHost('cache','Кэш WebKitty: '+reason,-1);
                 setTimeout(function () {
                     window.location.replace(mainPage);
                 }, 3000);
