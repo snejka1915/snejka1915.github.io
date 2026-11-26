@@ -1,0 +1,25 @@
+CACHE MANIFEST 
+
+CACHE: 
+style.css
+1150_1202.js
+1250_13.js
+1302_1352.js
+1400.js
+1402.js
+exploit10.js
+exploit7_9.js
+exploit6.js
+exploit5.js
+index.html
+payload.bin
+rpc_worker.js
+worker.js
+
+NETWORK: 
+* 
+
+SETTINGS:  
+prefer-online:  
+
+# 2026-11-15 12:00:00
